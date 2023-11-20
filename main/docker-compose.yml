@@ -1,0 +1,15 @@
+version: '3'
+services:
+  flask:
+    # Путь до Dockerfile для сборки образа
+    build: .
+    # Имя для создаваемого контейнера
+    container_name:  flask_app
+    # Перезапускаем сервис в случае падения 
+    restart: on-failure
+    # Прокладывам путь для файлов.
+    volumes:
+      - ./app:/app
+    # Открываем порт в контейнер
+    ports:
+      - "5001:5000"
